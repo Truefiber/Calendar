@@ -10,33 +10,6 @@ final public class Event {
     private List<String> attendees;
     private Date start;
     private Date finish;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Event)) return false;
-
-        Event event = (Event) o;
-
-        if (!attendees.equals(event.attendees)) return false;
-        if (finish != null ? !finish.equals(event.finish) : event.finish != null) return false;
-        if (location != null ? !location.equals(event.location) : event.location != null) return false;
-        if (start != null ? !start.equals(event.start) : event.start != null) return false;
-        if (!title.equals(event.title)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = title.hashCode();
-        result = 31 * result + attendees.hashCode();
-        result = 31 * result + (start != null ? start.hashCode() : 0);
-        result = 31 * result + (finish != null ? finish.hashCode() : 0);
-        result = 31 * result + (location != null ? location.hashCode() : 0);
-        return result;
-    }
-
     private String location;
 
     private Event (EventBuilder builder) {
@@ -63,6 +36,32 @@ final public class Event {
     @Override
     public String toString() {
         return ("Event title is : " + getTitle() + ", UUID: " + getId());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Event)) return false;
+
+        Event event = (Event) o;
+
+        if (!attendees.equals(event.attendees)) return false;
+        if (finish != null ? !finish.equals(event.finish) : event.finish != null) return false;
+        if (location != null ? !location.equals(event.location) : event.location != null) return false;
+        if (start != null ? !start.equals(event.start) : event.start != null) return false;
+        if (!title.equals(event.title)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title.hashCode();
+        result = 31 * result + attendees.hashCode();
+        result = 31 * result + (start != null ? start.hashCode() : 0);
+        result = 31 * result + (finish != null ? finish.hashCode() : 0);
+        result = 31 * result + (location != null ? location.hashCode() : 0);
+        return result;
     }
 
     public static class EventBuilder {

@@ -19,7 +19,7 @@ public class EventStorage {
         List<Event> result = new ArrayList<Event>();
         for (UUID i : listUUID) {
             String eventTitle = storage.get(i).getTitle();
-            if (eventTitle.equals(title)) {
+            if (eventTitle.contains(title)) {
                 result.add(storage.get(i));
             }
         }
