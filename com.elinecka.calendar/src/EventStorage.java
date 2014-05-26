@@ -8,6 +8,7 @@ public class EventStorage {
 
     public EventStorage() {
         storage = new HashMap<UUID, Event>();
+        System.out.println("Event storage initiated");
     }
 
     public void add(Event event) {
